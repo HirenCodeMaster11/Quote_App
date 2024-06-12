@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:quote_app/Screens/quoteScreen/quoteScreen.dart';
 import 'package:quote_app/utils/global.dart';
 
 class TopicScreen extends StatefulWidget {
@@ -74,14 +75,38 @@ class _TopicScreenState extends State<TopicScreen> {
               ),
               Wrap(
                 children: [
-                  ...List.generate(7,(index) => Container(
-                    margin: EdgeInsets.all(8),
-                    height: 200,
-                    width: 10,
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlue,
+                  ...List.generate(
+                    topic.length,
+                    (index) => InkWell(
+                      onTap: () {
+                        setState(() {
+                          Catagory.clear();
+                          for(int i=0; i<Catlist.length; i++)
+                            {
+                              if(topic[index]['topic'] == Catlist[i]['cat'])
+                                {
+                                  Catagory.add(Catlist[i]);
+                                }
+                            }
+                          Navigator.of(context).pushNamed('/quote');
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(8),
+                        height: height * 0.126,
+                        width: width * 0.4363,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                          image: DecorationImage(
+                              image: AssetImage('${topic[index]['img']}'),
+                              fit: BoxFit.cover),
+                        ),
+                        alignment: Alignment.bottomLeft,
+                        child: Text('  ${topic[index]['topic']}',style: TextStyle(color: Colors.white,fontSize: 19,fontWeight: FontWeight.w500),),
+                      ),
                     ),
-                  ),)
+                  ),
                 ],
               )
             ],

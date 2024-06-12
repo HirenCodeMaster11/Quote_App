@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Screens/Topic/topic.dart';
+import 'Screens/profile/Profile.dart';
 import 'Screens/quoteScreen/quoteScreen.dart';
 import 'Screens/splashcreen.dart';
 import 'Screens/theme/themeScreen.dart';
@@ -17,12 +18,13 @@ class QuoteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/to',
+      // initialRoute: '/to',
       routes: {
         '/' : (context) => SplashScreen(),
         '/quote' : (context) => QuoteScreen(),
         '/theme' : (context) => ThemeScreen(),
         '/to' : (context) => TopicScreen(),
+        '/pro' : (context) => Profile(),
       },
     );
   }

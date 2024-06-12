@@ -1,9 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_extend/share_extend.dart';
+import 'dart:ui' as ui;
 
 import '../../utils/global.dart';
 import '../../utils/quoteList.dart';
+
+CatModel? catModel;
+
+List<GlobalKey> imgKey = List.generate(catModel!.quoteModelList.length, (index) =>GlobalKey());
+
 
 class QuoteScreen extends StatefulWidget {
   const QuoteScreen({super.key});
@@ -13,6 +25,12 @@ class QuoteScreen extends StatefulWidget {
 }
 
 class _QuoteScreenState extends State<QuoteScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    catModel = CatModel.toList((Catagory.isEmpty)? Catlist : Catagory);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -31,53 +49,101 @@ class _QuoteScreenState extends State<QuoteScreen> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
+              padding: const EdgeInsets.only(left: 16, right: 16),
               child: PageView(
                 scrollDirection: Axis.vertical,
                 children: [
                   ...List.generate(
-                    quoteList.length,
+                    catModel!.quoteModelList.length,
                     (index) => Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          textAlign: align,
-                          '${quoteList[index]['quote']}',
-                          maxLines: 10,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            letterSpacing: 0.2,
-                            color: selectColor,
-                            fontSize: 40,
-                            fontFamily: ('$selectedFontFamily'),
+                        RepaintBoundary(
+                          key: imgKey[index],
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                textAlign: align,
+                                '${catModel!.quoteModelList[index].quote}',
+                                maxLines: 9,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  letterSpacing: 0.7,
+                                  color: selectColor,
+                                  fontSize: 38,
+                                  fontFamily: ('$selectedFontFamily'),
+                                ),
+                              ),
+                              Text(
+                                textAlign: align,
+                                '- ${catModel!.quoteModelList[index].author}',
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  letterSpacing: 0.7,
+                                  color: selectColor,
+                                  fontSize: 30,
+                                  fontFamily: ('${selectedFontFamily}'),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(
-                          height: height*0.1,
+                          height: height*0.08,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.share_outlined,
-                              color: Colors.white,
-                              size: 45,
+                            GestureDetector(
+                              onTap: () async {
+                                RenderRepaintBoundary boundary = imgKey[index].currentContext!.findRenderObject() as RenderRepaintBoundary;
+                                ui.Image image = await boundary.toImage();
+                                ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+                                Uint8List img = byteData!.buffer.asUint8List();
+
+                                final path = await getApplicationDocumentsDirectory();
+                                final file = File("${path.path}/img.png");
+                                file.writeAsBytes(img);
+                                ShareExtend.share(file.path,"image");
+                              },
+                              child: Icon(
+                                Icons.share_outlined,
+                                color: Colors.white,
+                                size: 45,
+                              ),
                             ),
                             SizedBox(
-                              width: 25,
+                              width: width*0.09,
                             ),
-                            Icon(
-                              Icons.download_outlined,
-                              color: Colors.white,
-                              size: 45,
+                            GestureDetector(
+                              onTap: ()  async {
+                                RenderRepaintBoundary boundary = imgKey[index].currentContext!.findRenderObject() as RenderRepaintBoundary;
+                                ui.Image image = await boundary.toImage();
+                                ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+                                Uint8List img = byteData!.buffer.asUint8List();
+
+                                ImageGallerySaver.saveImage(img);
+                              },
+                              child: Icon(
+                                Icons.save,
+                                color: Colors.white,
+                                size: 45,
+                              ),
                             ),
                             SizedBox(
-                              width: 25,
+                              width: width*0.09,
                             ),
-                            Icon(
-                              Icons.bookmark_border_outlined,
-                              color: Colors.white,
-                              size: 45,
+                            InkWell(
+                              onTap: () {
+                                Clipboard.setData(ClipboardData(text: '${catModel!.quoteModelList[index].quote}'),);
+                              },
+                              child: Icon(
+                                Icons.copy,
+                                color: Colors.white,
+                                size: 45,
+                              ),
                             )
                           ],
                         ),
@@ -149,20 +215,25 @@ class _QuoteScreenState extends State<QuoteScreen> {
                 ),
               ),
             ),
-            Container(
-              height: height*0.053,
-              width: width*0.28,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.settings,size: 22,color: Colors.white,),
-                  SizedBox(width: width*0.005,),
-                  Text('Setting',style: TextStyle(color: Colors.white,fontSize: 18),)
-                ],
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed('/pro');
+              },
+              child: Container(
+                height: height*0.053,
+                width: width*0.28,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.person,size: 22,color: Colors.white,),
+                    SizedBox(width: width*0.005,),
+                    Text('Profile',style: TextStyle(color: Colors.white,fontSize: 18),)
+                  ],
+                ),
               ),
             ),
           ],
