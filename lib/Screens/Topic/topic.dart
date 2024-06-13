@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:quote_app/Screens/quoteScreen/quoteScreen.dart';
 import 'package:quote_app/utils/global.dart';
 
 class TopicScreen extends StatefulWidget {
@@ -94,7 +92,7 @@ class _TopicScreenState extends State<TopicScreen> {
                       child: Container(
                         margin: EdgeInsets.all(8),
                         height: height * 0.126,
-                        width: width * 0.4363,
+                        width: width * 0.432,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           color: Colors.white,

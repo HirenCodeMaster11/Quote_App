@@ -25,6 +25,7 @@ List theme = [
   'assets/theme/21.jpeg',
 ];
 
+int selectedindex = 0;
 var selectedTheme = 'assets/theme/21.jpeg';
 
 var selectedFontFamily = 'Fredericka the Great';
