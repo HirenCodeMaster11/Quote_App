@@ -40,6 +40,7 @@ dependencies:
   image_gallery_saver: ^2.0.3
   share_extend: ^2.0.0
   flutter_wallpaper_manager: ^0.0.4
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -119,6 +120,7 @@ flutter:
     - assets/topic/Discipline.webp
     - assets/topic/kind.jpeg
     - assets/topic/love.webp
+    - assets/PRO.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

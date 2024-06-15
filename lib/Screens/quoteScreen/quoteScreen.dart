@@ -89,9 +89,6 @@ class _QuoteScreenState extends State<QuoteScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  width: width * 0.04,
-                                ),
                                 IconButton(
                                     onPressed: () async {
                                       showDialog(
@@ -548,7 +545,7 @@ class _QuoteScreenState extends State<QuoteScreen> {
                                                           await getApplicationDocumentsDirectory();
                                                       final file = File(
                                                           "${path.path}/img.png");
-                                                      file.writeAsBytes(img);
+                                                      await file.writeAsBytes(img);
 
                                                       int location =
                                                           WallpaperManager
