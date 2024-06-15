@@ -2,6 +2,15 @@
 
 A new Flutter project.
 
+<h2 align="center">0. Quote App Recording </h2>
+
+<h1 align="left"></h1>
+<div align="center">
+ <video src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/a284839f-fa27-47e6-9ed9-1f6387dab22e.mp4" type="video/mp4"> 
+</video>
+</div>
+
+
 <h2 align="center">1. Splash Screen </h2>
 
 <h1 align="left"></h1>
