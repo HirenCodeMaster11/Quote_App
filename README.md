@@ -28,9 +28,7 @@ A new Flutter project.
 
 <h1 align="left"></h1>
 <div align="center">
-![quote Cat](https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/03662093-3899-46be-b831-a5e07aca932f)
-
-  <img height="550"  src="" />
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/03662093-3899-46be-b831-a5e07aca932f" />
 </div>
 
 <h2 align="center">3-2. Quote Catagory Screen </h2>
