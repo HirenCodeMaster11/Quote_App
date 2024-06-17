@@ -12,9 +12,10 @@ import 'dart:ui' as ui;
 
 import '../../utils/global.dart';
 import '../../utils/quoteList.dart';
-import 'image.dart';
 
 CatModel? catModel;
+
+GlobalKey imgKey = GlobalKey();
 
 class QuoteScreen extends StatefulWidget {
   const QuoteScreen({super.key});
