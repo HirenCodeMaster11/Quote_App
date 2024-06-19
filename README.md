@@ -2,15 +2,77 @@
 
 A new Flutter project.
 
-## Getting Started
+<h2 align="center">0. Quote App Recording </h2>
 
-This project is a starting point for a Flutter application.
+<h1 align="left"></h1>
+<div align="center">
+ <video src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/a284839f-fa27-47e6-9ed9-1f6387dab22e.mp4" type="video/mp4"> 
+</video>
+</div>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<h2 align="center">1. Splash Screen </h2>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h1 align="left"></h1>
+<div align="center">
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/7ace66e0-f03f-4b14-bd67-67d31adfdfdb" />
+</div>
+<div align="center">
+<a href="https://github.com/HirenCodeMaster11/Quote_App/blob/master/lib/Screens/splashcreen.dart">-> 📂 Go To Dart File 📂 <-</a>
+</div>
+
+
+<h2 align="center">2. Quote Screen </h2>
+
+<h1 align="left"></h1>
+<div align="center">
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/06349794-e84d-466b-b03b-d2bed3342abe" />
+</div>
+<div align="center">
+<a href="https://github.com/HirenCodeMaster11/Quote_App/blob/master/lib/Screens/quoteScreen/quoteScreen.dart">-> 📂 Go To Dart File 📂 <-</a>
+</div>
+
+
+<h2 align="center">3. Quote Catagory Screen </h2>
+
+<h1 align="left"></h1>
+<div align="center">
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/03662093-3899-46be-b831-a5e07aca932f" />
+</div>
+
+<h2 align="center">3-2. Quote Catagory Screen </h2>
+
+<h1 align="left"></h1>
+<div align="center">
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/b87a836d-20c7-441b-a103-13ea173f459c" />
+</div>
+<div align="center">
+<a href="https://github.com/HirenCodeMaster11/Quote_App/blob/master/lib/Screens/Topic/topic.dart">-> 📂 Go To Dart File 📂 <-</a>
+</div>
+
+<h2 align="center">4. Theme Screen </h2>
+
+<h1 align="left"></h1>
+<div align="center">
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/95364c28-ebbe-406d-9174-621229666e1b" />
+</div>
+
+<h2 align="center">4-2. Font Screen </h2>
+
+<h1 align="left"></h1>
+<div align="center">
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/ed29a01c-f0ae-4363-b440-a85617a29734" />
+</div>
+<div align="center">
+<a href="https://github.com/HirenCodeMaster11/Quote_App/blob/master/lib/Screens/theme/themeScreen.dart">-> 📂 Go To Dart File 📂 <-</a>
+</div>
+
+<h2 align="center">5. Profile Edit Screen </h2>
+
+<h1 align="left"></h1>
+<div align="center">
+  <img height="550"  src="https://github.com/HirenCodeMaster11/Quote_App/assets/148859956/92d0cae7-9129-46a0-b294-519b507a6dca" />
+</div>
+<div align="center">
+<a href="https://github.com/HirenCodeMaster11/Quote_App/tree/master/lib/Screens/profile">-> 📂 Go To Dart File 📂 <-</a>
+</div>
