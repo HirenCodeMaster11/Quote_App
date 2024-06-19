@@ -11,6 +11,7 @@ void main() {
   runApp(QuoteApp());
 }
 
+
 class QuoteApp extends StatelessWidget {
   const QuoteApp({super.key});
 
